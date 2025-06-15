@@ -194,7 +194,7 @@ const AddSparePartModal: React.FC<AddSparePartModalProps> = ({ isOpen, onClose, 
             </div>
 
             <div className="form-group">
-              <label className="form-label">سعر الشراء (ج.م) *</label>
+              <label className="form-label">سعر الشراء (د.ت) *</label>
               <input
                 type="number"
                 min="0"
@@ -208,7 +208,7 @@ const AddSparePartModal: React.FC<AddSparePartModalProps> = ({ isOpen, onClose, 
             </div>
 
             <div className="form-group">
-              <label className="form-label">سعر البيع (ج.م) *</label>
+              <label className="form-label">سعر البيع (د.ت) *</label>
               <input
                 type="number"
                 min="0"
@@ -238,7 +238,7 @@ const AddSparePartModal: React.FC<AddSparePartModalProps> = ({ isOpen, onClose, 
           {formData.purchase_price > 0 && formData.selling_price > 0 && (
             <div className="bg-green-50 p-4 rounded-lg">
               <p className="text-green-800 font-medium">
-                الربح المتوقع: {(formData.selling_price - formData.purchase_price).toFixed(2)} ج.م
+                الربح المتوقع: {(formData.selling_price - formData.purchase_price).toFixed(2)} د.ت
                 ({(((formData.selling_price - formData.purchase_price) / formData.purchase_price) * 100).toFixed(1)}%)
               </p>
             </div>

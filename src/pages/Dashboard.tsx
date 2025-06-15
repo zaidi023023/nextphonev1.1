@@ -157,21 +157,21 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
           title="إجمالي الإيرادات"
-          value={`${stats.total_revenue.toLocaleString()} ج.م`}
+          value={`${stats.total_revenue.toLocaleString()} د.ت`}
           icon={DollarSign}
           color="blue"
         />
         
         <StatsCard
           title="تكلفة القطع"
-          value={`${stats.total_cost.toLocaleString()} ج.م`}
+          value={`${stats.total_cost.toLocaleString()} د.ت`}
           icon={Package}
           color="red"
         />
         
         <StatsCard
           title="صافي الأرباح"
-          value={`${stats.net_profit.toLocaleString()} ج.م`}
+          value={`${stats.net_profit.toLocaleString()} د.ت`}
           icon={TrendingUp}
           color="green"
         />
@@ -196,7 +196,7 @@ const Dashboard: React.FC = () => {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
-                  <Tooltip formatter={(value) => [`${value} ج.م`, 'الربح']} />
+                  <Tooltip formatter={(value) => [`${value} د.ت`, 'الربح']} />
                   <Bar dataKey="profit" fill="#3B82F6" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>

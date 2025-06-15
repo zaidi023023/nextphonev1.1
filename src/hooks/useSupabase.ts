@@ -353,6 +353,31 @@ export const useRepairRequests = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // الأرشفة التلقائية كل 12 ساعة
+  useEffect(() => {
+    const autoArchive = () => {
+      const now = new Date();
+      const twelveHoursAgo = new Date(now.getTime() - 12 * 60 * 60 * 1000);
+      
+      setRepairs(prev => prev.map(repair => {
+        if (repair.status === 'completed' && 
+            repair.completed_at && 
+            new Date(repair.completed_at) <= twelveHoursAgo) {
+          return { ...repair, status: 'archived' as const };
+        }
+        return repair;
+      }));
+    };
+
+    // تشغيل الأرشفة التلقائية كل 12 ساعة
+    const interval = setInterval(autoArchive, 12 * 60 * 60 * 1000);
+    
+    // تشغيل الأرشفة مرة واحدة عند التحميل
+    autoArchive();
+
+    return () => clearInterval(interval);
+  }, []);
+
   const fetchRepairs = async () => {
     try {
       setLoading(true);

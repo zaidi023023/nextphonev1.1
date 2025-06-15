@@ -171,14 +171,14 @@ const Inventory: React.FC = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="text-gray-900">{part.purchase_price} ج.م</span>
+                      <span className="text-gray-900">{part.purchase_price} د.ت</span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="font-medium text-gray-900">{part.selling_price} ج.م</span>
+                      <span className="font-medium text-gray-900">{part.selling_price} د.ت</span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="font-medium text-green-600">
-                        {part.selling_price - part.purchase_price} ج.م
+                        {part.selling_price - part.purchase_price} د.ت
                       </span>
                     </td>
                     <td className="px-6 py-4">

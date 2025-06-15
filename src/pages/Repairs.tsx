@@ -154,10 +154,10 @@ const Repairs: React.FC = () => {
                       <p className="text-gray-900">{repair.issue_type}</p>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="font-medium text-gray-900">{repair.total_cost} ج.م</p>
+                      <p className="font-medium text-gray-900">{repair.total_cost} د.ت</p>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="font-medium text-green-600">{repair.profit} ج.م</p>
+                      <p className="font-medium text-green-600">{repair.profit} د.ت</p>
                     </td>
                     <td className="px-6 py-4">
                       {getStatusBadge(repair.status)}

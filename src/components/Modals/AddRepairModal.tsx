@@ -58,9 +58,6 @@ const AddRepairModal: React.FC<AddRepairModalProps> = ({ isOpen, onClose, onAdd 
 
     if (!formData.customer_name.trim()) newErrors.customer_name = 'اسم العميل مطلوب';
     if (!formData.customer_phone.trim()) newErrors.customer_phone = 'رقم الهاتف مطلوب';
-    if (!/^01[0-9]{9}$/.test(formData.customer_phone)) {
-      newErrors.customer_phone = 'رقم الهاتف غير صحيح (يجب أن يبدأ بـ 01 ويحتوي على 11 رقم)';
-    }
     if (!formData.device_brand_id) newErrors.device_brand_id = 'ماركة الجهاز مطلوبة';
     if (!formData.device_model_id) newErrors.device_model_id = 'موديل الجهاز مطلوب';
     if (!formData.issue_type) newErrors.issue_type = 'نوع العطل مطلوب';
@@ -185,7 +182,7 @@ const AddRepairModal: React.FC<AddRepairModalProps> = ({ isOpen, onClose, onAdd 
                   value={formData.customer_phone}
                   onChange={(e) => setFormData({...formData, customer_phone: e.target.value})}
                   className={`form-input ${errors.customer_phone ? 'border-red-500' : ''}`}
-                  placeholder="01234567890"
+                  placeholder="أدخل رقم الهاتف"
                 />
                 {errors.customer_phone && <p className="text-red-500 text-sm mt-1">{errors.customer_phone}</p>}
               </div>
@@ -249,7 +246,7 @@ const AddRepairModal: React.FC<AddRepairModalProps> = ({ isOpen, onClose, onAdd 
               </div>
 
               <div className="form-group">
-                <label className="form-label">تكلفة العمالة (ج.م)</label>
+                <label className="form-label">تكلفة العمالة (د.ت)</label>
                 <input
                   type="number"
                   min="0"
@@ -317,7 +314,7 @@ const AddRepairModal: React.FC<AddRepairModalProps> = ({ isOpen, onClose, onAdd 
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">السعر (ج.م)</label>
+                  <label className="form-label">السعر (د.ت)</label>
                   <input
                     type="number"
                     min="0"
@@ -347,19 +344,19 @@ const AddRepairModal: React.FC<AddRepairModalProps> = ({ isOpen, onClose, onAdd 
               <div className="space-y-1 text-sm text-blue-800">
                 <div className="flex justify-between">
                   <span>تكلفة القطع:</span>
-                  <span>{usedParts.reduce((sum, part) => sum + (part.quantity * part.price), 0).toFixed(2)} ج.م</span>
+                  <span>{usedParts.reduce((sum, part) => sum + (part.quantity * part.price), 0).toFixed(2)} د.ت</span>
                 </div>
                 <div className="flex justify-between">
                   <span>تكلفة العمالة:</span>
-                  <span>{formData.labor_cost.toFixed(2)} ج.م</span>
+                  <span>{formData.labor_cost.toFixed(2)} د.ت</span>
                 </div>
                 <div className="flex justify-between font-medium border-t border-blue-200 pt-1">
                   <span>إجمالي التكلفة:</span>
-                  <span>{calculateTotalCost().toFixed(2)} ج.م</span>
+                  <span>{calculateTotalCost().toFixed(2)} د.ت</span>
                 </div>
                 <div className="flex justify-between font-medium text-green-700">
                   <span>الربح المتوقع:</span>
-                  <span>{calculateProfit().toFixed(2)} ج.م</span>
+                  <span>{calculateProfit().toFixed(2)} د.ت</span>
                 </div>
               </div>
             </div>
